@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <Style>
+      body {
+    background-color: #c7c3c3;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 20px auto;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.9em;
+}
+    </Style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">My  Profile</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <img src="ram.jpg" class="card-img-top" alt="Profile Picture">
+                <div class="card-body">
+                    <h5 class="card-title">Heram</h5>
+                    <p class="card-text">heram1311@gmail.com</p>
+                    <p class="card-text">+91 9652764765</p>
+                    <a href="#" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>Contact Information</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Address:</strong> 12-2/A, Gandhi nagar, Tirupati, Andhar Pradesh.</p>
+                    <p><strong>Pin Code:</strong> 517100</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Booking History</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2023-01-15</td>
+                                <td>Plumbing</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                              
+                            </tr>
+                            <tr>
+                                <td>2023-02-20</td>
+                                <td>Cleaning</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>2023-03-05</td>
+                                <td>Electrical Repair</td>
+                                <td><span class="badge badge-danger">Cancelled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

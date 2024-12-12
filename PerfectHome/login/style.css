@@ -1,0 +1,52 @@
+
+body {
+    background-image: url(bg.jpeg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+    margin: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form-box {
+    background: rgba(213, 234, 250, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

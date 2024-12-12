@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Pricing</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  background-color: #f8f9fa;
+}
+
+h1 {
+  color: #333;
+}
+
+.card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  font-size: 1.5rem;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.badge-warning {
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-center my-4">Worker Pricing Packages</h1>
+  
+  <!-- Pricing Cards Row -->
+  <div class="row text-center">
+    
+    <!-- 1 Worker Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 card-hover">
+        <div class="card-header bg-primary text-white">
+          <h3>1 Worker</h3>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">₹1000 / Day</h4>
+          <p class="card-text">Get one reliable worker for a full day.</p>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">8-hour workday</li>
+            <li class="list-group-item">Skilled in various tasks</li>
+            <li class="list-group-item">No hidden costs</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Book Now</a>
+        </div>
+        <div class="card-footer text-muted">Terms & conditions apply.</div>
+      </div>
+    </div>
+
+    <!-- 3 Workers Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 card-hover">
+        <div class="card-header bg-success text-white">
+          <h3>3 Workers</h3>
+          <span class="badge badge-warning">Discounted</span>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">₹2500 / Day</h4>
+          <p class="card-text">Hire a team of three workers for a discounted rate.</p>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">8-hour workday</li>
+            <li class="list-group-item">Experienced and coordinated team</li>
+            <li class="list-group-item">No hidden costs</li>
+          </ul>
+          <a href="#" class="btn btn-success">Book Now</a>
+        </div>
+        <div class="card-footer text-muted">Save ₹500 with this package.</div>
+      </div>
+    </div>
+
+    <!-- 5 Workers Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 card-hover">
+        <div class="card-header bg-info text-white">
+          <h3>5 Workers</h3>
+          <span class="badge badge-warning">Discounted</span>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">₹4000 / Day</h4>
+          <p class="card-text">Get five skilled workers for a special bulk rate.</p>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">8-hour workday</li>
+            <li class="list-group-item">Highly efficient team for larger tasks</li>
+            <li class="list-group-item">No hidden costs</li>
+          </ul>
+          <a href="#" class="btn btn-info">Book Now</a>
+        </div>
+        <div class="card-footer text-muted">Save ₹1000 with this package.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS, jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

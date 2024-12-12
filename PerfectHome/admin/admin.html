@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Manage Bookings</title>
+    <!-- Bootstrap CSS for responsiveness -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            background-color: #343a40;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            color: white;
+        }
+
+        .sidebar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .sidebar img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #ddd;
+            padding: 10px 15px;
+            display: block;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .card-body {
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .pending {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .in-progress {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .completed {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-custom {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="perfecthome.jpg" alt="Company Logo"> <!-- Insert your logo image here -->
+            Admin Panel
+        </div>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#booking">Manage Bookings</a>
+        <a href="../admin/pay.php">Manage Payments</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <span class="navbar-brand">Admin Dashboard</span>
+            <a href="../login/login.html">Logout</a>
+        </nav>
+
+        <!-- Booking Management Section -->
+        <div class="container mt-4" id="booking">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Manage Bookings</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>S.NO.</th>
+                                        <th>Customer</th>
+                                        <th>Service</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Payment</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Booking Row 1 -->
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Heram</td>
+                                        <td>Plumbing</td>
+                                        <td>2024-11-15</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                        <td>Unpaid</td>
+                                        <td>
+                                            <button class="btn btn-warning btn-sm btn-custom" onclick="viewBooking(1)">View</button>
+                                            <button class="btn btn-success btn-sm btn-custom" onclick="updateStatus(1, 'confirmed')">Confirm</button>
+                                            <button class="btn btn-danger btn-sm btn-custom" onclick="cancelBooking(1)">Cancel</button>
+                                        </td>
+                                    </tr>
+                                    <!-- Booking Row 2 -->
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Sudharshan</td>
+                                        <td>Electrician</td>
+                                        <td>2024-11-18</td>
+                                        <td><span class="status-badge in-progress">In Progress</span></td>
+                                        <td>Paid</td>
+                                        <td>
+                                            <button class="btn btn-warning btn-sm btn-custom" onclick="viewBooking(2)">View</button>
+                                            <button class="btn btn-success btn-sm btn-custom" onclick="updateStatus(2, 'completed')">Complete</button>
+                                            <button class="btn btn-danger btn-sm btn-custom" onclick="cancelBooking(2)">Cancel</button>
+                                        </td>
+                                    </tr>
+                                    <!-- Booking Row 3 -->
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Dileep</td>
+                                        <td>Cleaning</td>
+                                        <td>2024-11-20</td>
+                                        <td><span class="status-badge completed">Completed</span></td>
+                                        <td>Paid</td>
+                                        <td>
+                                            <button class="btn btn-warning btn-sm btn-custom" onclick="viewBooking(3)">View</button>
+                                            <button class="btn btn-success btn-sm btn-custom" onclick="updateStatus(3, 'confirmed')">Confirm</button>
+                                            <button class="btn btn-danger btn-sm btn-custom" onclick="cancelBooking(3)">Cancel</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Details Modal -->
+            <div class="modal fade" id="bookingDetailModal" tabindex="-1" aria-labelledby="bookingDetailModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="bookingDetailModalLabel">Booking Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="bookingDetailContent">
+                                <!-- Dynamic booking details will go here -->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="markAsCompleted()">Mark as Completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Functions for managing bookings
+        function viewBooking(bookingId) {
+            const bookingDetails = `
+                <p><strong>Customer Name:</strong> Heram</p>
+                <p><strong>Service Type:</strong> Plumbing</p>
+                <p><strong>Address:</strong> 12-2/A, Gandhi Nagar, Tirupati</p>
+                <p><strong>Start Date:</strong> 2024-11-15</p>
+                <p><strong>Start Time:</strong> 10:00 AM</p>
+                <p><strong>Duration:</strong> 2 Days</p>
+                <p><strong>Total Amount:</strong> ₹2000</p>
+                <p><strong>Status:</strong> Pending</p>
+                <p><strong>Payment Status:</strong> Unpaid</p>
+            `;
+            $('#bookingDetailContent').html(bookingDetails);
+            $('#bookingDetailModal').modal('show');
+        }
+
+        function updateStatus(bookingId, newStatus) {
+            let statusBadge = '';
+            if (newStatus === 'confirmed') {
+                statusBadge = '<span class="status-badge confirmed">Confirmed</span>';
+            } else if (newStatus === 'completed') {
+                statusBadge = '<span class="status-badge completed">Completed</span>';
+            }
+            $('#bookingTableBody tr').eq(bookingId - 1).find('td').eq(4).html(statusBadge);
+        }
+
+        function cancelBooking(bookingId) {
+            alert(`Booking ID: ${bookingId} has been canceled.`);
+        }
+
+        function markAsCompleted() {
+            alert('The booking has been marked as completed!');
+            $('#bookingDetailModal').modal('hide');
+        }
+    </script>
+
+</body>
+
+</html>

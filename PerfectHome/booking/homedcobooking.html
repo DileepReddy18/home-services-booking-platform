@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Booking Form</title>
+    <!-- Bootstrap CSS for responsiveness -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* General Styling */
+        body {
+            background-image: url(housedeco.jpg);
+            background-size: cover;
+            
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding-top: 20px;
+        }
+
+        header {
+            background: rgba(166, 160, 160, 0.6);
+            color:blue;
+            padding: 30px 0;
+        }
+
+        h1,
+        h3 {
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 0;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Booking Confirmation Styling */
+        #booking-confirmation {
+            border: 1px solid #007bff;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            margin-top: 40px;
+        }
+
+        #booking-confirmation p {
+            font-size: 16px;
+        }
+
+        #booking-confirmation strong {
+            color: #007bff;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Amount Calculation Styling */
+        .total-amount {
+            font-size:xx-large;
+            font-weight: bold;
+            color: #dc3545;
+            margin-top: 20px;
+        }
+
+        /* Payment Section Styling */
+        .payment-method-fields {
+            display: none;
+        }
+
+        #paymentMessage {
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="text-center p-4">
+        <h1>Service Booking</h1>
+        <p>Fill in the details below to schedule your service</p>
+    </header>
+
+    <!-- Service Selection Section -->
+    <section id="service-selection" class="container mt-5" >
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h3 class="text-center">Service Details</h3>
+                <div class="card p-4" style="background: rgba(235, 234, 234, 0.6);">
+                    <div class="row">
+                        <!-- Select Start Date -->
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="serviceDate">Select Starting Date:</label>
+                                <input type="date" class="form-control" id="serviceDate" required>
+                            </div>
+                        </div>
+    
+                        <!-- Select Start Time -->
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="serviceTime">Select Starting Time:</label>
+                                <input type="time" class="form-control" id="serviceTime" required>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <!-- Address/Location Details -->
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                                <label for="addressLine1">Address Line 1:</label>
+                                <input type="text" class="form-control" id="addressLine1" placeholder="Street Address" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                                <label for="addressLine2">Address Line 2:</label>
+                                <input type="text" class="form-control" id="addressLine2" placeholder="Apartment, suite, etc. (optional)">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="city">City:</label>
+                                <input type="text" class="form-control" id="city" placeholder="City" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="state">State:</label>
+                                <input type="text" class="form-control" id="state" placeholder="State" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="postalCode">Postal Code:</label>
+                                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code" required>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <!-- Select Number of Workers -->
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="workersCount">Number of Workers Needed:</label>
+                                <select class="form-control" id="workersCount" required>
+                                    <option value="" disabled selected>Select number of workers</option>
+                                    <option value="1">1 Worker</option>
+                                    <option value="2">2 Workers</option>
+                                    <option value="3">3 Workers</option>
+                                    <option value="4">4 Workers</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <!-- Select Number of Days -->
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group">
+                                <label for="daysCount">Number of Days:</label>
+                                <input type="number" class="form-control" id="daysCount" placeholder="Enter number of days" min="1" required>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Total Amount Display -->
+                    <div class="total-amount text-center" id="totalAmount">Total Amount: ₹0</div>
+    
+                    <button id="proceedBtn" class="btn btn-primary w-100 mt-3">Proceed to Booking</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Confirmation Section (Hidden initially) -->
+    <section id="booking-confirmation" class="container mt-5" style="display: none;background: rgba(235, 234, 234, 0.6);">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <h3 class="text-center">Booking Confirmation</h3>
+                <p>Your service has been scheduled successfully.</p>
+                <p><strong>Start Date:</strong> <span id="confirmDate"></span></p>
+                <p><strong>Start Time:</strong> <span id="confirmTime"></span></p>
+                <p><strong>Address:</strong> <span id="confirmAddress"></span></p>
+                <p><strong>Workers Needed:</strong> <span id="confirmWorkers"></span></p>
+                <p><strong>Duration:</strong> <span id="confirmDays"></span> day(s)</p>
+                <p><strong>Total Amount:</strong> ₹<span id="confirmTotalAmount"></span></p>
+
+                <button id="paymentBtn" class="btn btn-success w-100 mt-3">Proceed to Payment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Process Section (Hidden initially) -->
+    <div class="container" id="paymentProcess" style="display: none;">
+        <h2>Payment Process</h2>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="paymentMethod">Select Payment Method</label>
+                <select class="form-control" id="paymentMethod" required>
+                    <option value="">Choose...</option>
+                    <option value="upi">UPI</option>
+                    <option value="qr">QR Code</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="credit">Credit Card</option>
+                </select>
+            </div>
+
+            <div id="upiFields" class="payment-method-fields">
+                <div class="form-group">
+                    <label for="upiId">UPI ID</label>
+                    <input type="text" class="form-control" id="upiId" placeholder="example@upi" required>
+                </div>
+            </div>
+
+            <div id="qrFields" class="payment-method-fields">
+                <div class="form-group">
+                    <br>
+                    <label for="qrCode">Scan here</label><br>
+                    <img src="qr.jpeg" alt="qr Code">
+                </div>
+            </div>
+
+            <div id="debitFields" class="payment-method-fields">
+                <div class="form-group">
+                    <label for="debitCardNumber">Debit Card Number</label>
+                    <input type="text" class="form-control" id="debitCardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="debitExpiryDate">Expiry Date</label>
+                        <input type="text" class="form-control" id="debitExpiryDate" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="debitCvv">CVV</label>
+                        <input type="text" class="form-control" id="debitCvv" placeholder="123" required>
+                    </div>
+                </div>
+            </div>
+
+            <div id="creditFields" class="payment-method-fields">
+                <div class="form-group">
+                    <label for="creditCardNumber">Credit Card Number</label>
+                    <input type="text" class="form-control" id="creditCardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="creditExpiryDate">Expiry Date</label>
+                        <input type="text" class="form-control" id="creditExpiryDate" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="creditCvv">CVV</label>
+                        <input type="text" class="form-control" id="creditCvv" placeholder="123" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Total Amount</label>
+                <input type="text" class="form-control" id="amount" value="₹0" disabled>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Confirm Payment</button>
+        </form>
+        <div id="paymentMessage" class="mt-4"></div>
+    </div>
+
+    <!-- Bootstrap and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Calculate total amount
+            const calculateTotalAmount = () => {
+                const workersCount = parseInt($("#workersCount").val()) || 0;
+                const daysCount = parseInt($("#daysCount").val()) || 0;
+                const totalAmount = workersCount * daysCount * 1000; // Assume each worker costs ₹1000 per day
+                $("#totalAmount").text("Total Amount: ₹" + totalAmount);
+                return totalAmount;
+            };
+
+            // Update total amount on change
+            $("#workersCount, #daysCount").on("change keyup", calculateTotalAmount);
+
+            // Proceed to Booking
+            $("#proceedBtn").click(function () {
+                const serviceDate = $("#serviceDate").val();
+                const serviceTime = $("#serviceTime").val();
+                var addressLine1 = document.getElementById('addressLine1').value;
+                var addressLine2 = document.getElementById('addressLine2').value;
+                var city = document.getElementById('city').value;
+                var state = document.getElementById('state').value;
+                var postalCode = document.getElementById('postalCode').value;
+                const workersNeeded = $("#workersCount").val();
+                const daysCount = $("#daysCount").val();
+                const totalAmount = calculateTotalAmount();
+                var fullAddress = addressLine1 + ', ' + (addressLine2 ? addressLine2 + ', ' : '') + city + ', ' + state + ', ' + postalCode;
+
+                $("#confirmDate").text(serviceDate);
+                $("#confirmTime").text(serviceTime);
+                document.getElementById('confirmAddress').innerText = fullAddress;
+                $("#confirmWorkers").text(workersNeeded);
+                $("#confirmDays").text(daysCount);
+                $("#confirmTotalAmount").text(totalAmount);
+
+                $("#service-selection").hide();
+                $("#booking-confirmation").show();
+            });
+
+            // Proceed to Payment
+            $("#paymentBtn").click(function () {
+                $("#booking-confirmation").hide();
+                $("#paymentProcess").show();
+                const totalAmount = $("#confirmTotalAmount").text();
+                $("#amount").val("₹" + totalAmount);
+            });
+
+            // Show relevant payment fields based on selected method
+            $("#paymentMethod").change(function () {
+                $(".payment-method-fields").hide();
+                const selectedMethod = $(this).val();
+                if (selectedMethod) {
+                    $("#" + selectedMethod + "Fields").show();
+                }
+            });
+
+            // Handle payment form submission
+            $("#paymentForm").submit(function (e) {
+                e.preventDefault();
+                const paymentMethod = $("#paymentMethod").val();
+                const paymentDetails = paymentMethod === "upi" ? $("#upiId").val() :
+                    paymentMethod === "qr" ? $("#qrCode").val() :
+                    paymentMethod === "debit" ? $("#debitCardNumber").val() :
+                    $("#creditCardNumber").val();
+
+                $("#paymentMessage").text("Payment of " + $("#amount").val() + " confirmed using " + paymentMethod + " with details: " + paymentDetails);
+                $("#paymentForm")[0].reset();
+                $(".payment-method-fields").hide();
+                $("#paymentProcess").hide();
+                $("#service-selection").show();
+            });
+        });
+    </script>
+</body>
+
+</html>
